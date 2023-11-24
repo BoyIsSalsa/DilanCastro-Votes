@@ -60,11 +60,3 @@ body {
 .vote-button button:hover {
   border-color: black;
 }
-
-.vote-button img {
-  width: 50px; /* Adjust image size */
-  height: 50px; /* Adjust image size */
-  position: absolute;
-  top: -20px; /* Adjust as needed */
-  left: -20px; /* Adjust as needed */
-}
