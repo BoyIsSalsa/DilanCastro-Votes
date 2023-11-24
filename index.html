@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Website</title>
+  <title>Your Voting System</title>
   <style>
     body {
       margin: 0;
@@ -57,27 +57,30 @@
   </div>
 
   <div class="button-container">
-    <button class="button" onclick="goToPage1()">Edit 1</button>
-    <button class="button" onclick="goToPage2()">Edit 2</button>
-    <button class="button" onclick="goToPage3()">Edit 3</button>
-    <button class="button" onclick="goToPage4()">Edit 4</button>
+    <button class="button" onclick="vote('Edit1')">Edit 1</button>
+    <button class="button" onclick="vote('Edit2')">Edit 2</button>
+    <button class="button" onclick="vote('Edit3')">Edit 3</button>
+    <button class="button" onclick="vote('Edit4')">Edit 4</button>
   </div>
 
   <script>
-    function goToPage1() {
-      window.location.href = "https://your_page_url_1.com";
-    }
+    let votes = {
+      option1: 0,
+      option2: 0,
+      option3: 0,
+      option4: 0
+    };
 
-    function goToPage2() {
-      window.location.href = "https://your_page_url_2.com";
-    }
+    function vote(option) {
+      if (localStorage.getItem('hasVoted')) {
+        alert('You have already voted from this device.');
+        return;
+      }
 
-    function goToPage3() {
-      window.location.href = "https://your_page_url_3.com";
-    }
-
-    function goToPage4() {
-      window.location.href = "https://your_page_url_4.com";
+      votes[option]++;
+      localStorage.setItem('hasVoted', true);
+      alert(`You voted for ${option}! Total votes for ${option}: ${votes[option]}`);
+      // This is just an alert; for a real system, send this data to a server to save votes
     }
   </script>
 </body>
