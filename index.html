@@ -56,10 +56,10 @@
       if (clickedButtons[option] === 0) {
         clickedButtons[option]++;
         alert(`You voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
+        disableAllButtonsExceptSelected(button);
       } else {
-        alert(`You have already voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
+        alert(`Total people who clicked ${option}: ${clickedButtons[option]}`);
       }
-      disableAllButtonsExceptSelected(button);
     };
 
     const disableAllButtonsExceptSelected = (selectedButton) => {
