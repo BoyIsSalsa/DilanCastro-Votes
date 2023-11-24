@@ -30,6 +30,11 @@
       color: white;
       cursor: pointer;
     }
+
+    .disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -38,22 +43,23 @@
   </div>
 
   <div class="button-container">
-    <button class="button" onclick="vote('option1')">Edit 1</button>
-    <button class="button" onclick="vote('option2')">Edit 2</button>
-    <button class="button" onclick="vote('option3')">Edit 3</button>
-    <button class="button" onclick="vote('option4')">Edit 4</button>
+    <button class="button" onclick="vote('option1', this)">Edit 1</button>
+    <button class="button" onclick="vote('option2', this)">Edit 2</button>
+    <button class="button" onclick="vote('option3', this)">Edit 3</button>
+    <button class="button" onclick="vote('option4', this)">Edit 4</button>
   </div>
 
   <script>
-    const clickedButtons = {};
+    const clickedButtons = { option1: 0, option2: 0, option3: 0, option4: 0 };
 
-    const vote = (option) => {
-      if (!clickedButtons[option]) {
-        clickedButtons[option] = true;
-        const count = Object.keys(clickedButtons).length;
-        alert(`You voted for ${option}!\nTotal people who clicked: ${count}`);
+    const vote = (option, button) => {
+      if (clickedButtons[option] === 0) {
+        clickedButtons[option]++;
+        button.disabled = true;
+        button.classList.add('disabled');
+        alert(`You voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
       } else {
-        alert(`You have already voted for ${option}!\nTotal people who clicked: ${Object.keys(clickedButtons).length}`);
+        alert(`You have already voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
       }
     };
   </script>
