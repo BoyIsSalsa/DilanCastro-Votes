@@ -26,4 +26,5 @@ body {
 
 .btn:hover {
   border-color: white;
+  color: rgb(169, 158, 158);
 }
