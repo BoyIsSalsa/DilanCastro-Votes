@@ -62,8 +62,8 @@ body {
 }
 
 .vote-button img {
-  width: 80px; /* Adjust image size */
-  height: 80px; /* Adjust image size */
+  width: 50px; /* Adjust image size */
+  height: 50px; /* Adjust image size */
   position: absolute;
   top: -20px; /* Adjust as needed */
   left: -20px; /* Adjust as needed */
