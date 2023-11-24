@@ -30,7 +30,7 @@ body {
 .sub-text {
   text-align: center;
   color: white;
-  margin-top: 5px; /* Adjust margin to position text closer to top bar */
+  margin-top: 20px; /* Adjust margin to position text closer to top bar */
   font-weight: 600; /* Slightly bold */
 }
 
