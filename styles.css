@@ -1,33 +1,70 @@
 body, h1, p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Set the background color to black */
-  body {
-    background-color: black;
-  }
-  
-  /* CSS for top bar */
-  .top-bar {
-    background-color: #FFCC99; /* Light orange */
-    padding: 10px;
-    text-align: center;
-  }
-  
-  /* Style for the top bar text */
-  .top-text {
-    color: black;
-    font-weight: bold;
-  }
-  
-  /* Text under top bar */
-  .main-text {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .sub-text {
-    color: white;
-    font-weight: 600; /* Slightly bold */
-  }
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the background color to black */
+body {
+  background-color: black;
+}
+
+/* CSS for top bar */
+.top-bar {
+  background-color: #FFCC99; /* Light orange */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style for the top bar text */
+.top-text {
+  color: black;
+  font-weight: bold;
+}
+
+/* Text under top bar */
+.main-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sub-text {
+  color: white;
+  font-weight: 600; /* Slightly bold */
+}
+
+/* CSS for button layout */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Style for the vote button */
+.vote-button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+}
+
+.vote-button button {
+  background-color: #FFA500; /* Bright orange */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid transparent;
+}
+
+.vote-button button:hover {
+  border-color: black;
+}
+
+.vote-button img {
+  width: 80px; /* Adjust image size */
+  height: 80px; /* Adjust image size */
+  position: absolute;
+  top: -20px; /* Adjust as needed */
+  left: -20px; /* Adjust as needed */
+}
