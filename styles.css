@@ -30,7 +30,7 @@ body {
 .main-text {
   text-align: center;
   color: white;
-  margin-top: 50px; /* Adjust margin as needed */
+  margin-top: 5px; /* Adjust margin to bring text closer to top bar */
   z-index: 1; /* Place text under the top bar */
 }
 
@@ -49,36 +49,49 @@ body {
 
 /* Style for the vote button */
 .vote-button {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  margin: 20px;
-  border-radius: 50%; /* Make the ends of the button curve */
+  position: absolute;
+  width: 100px; /* Adjust button size */
+  height: 40px; /* Adjust button size */
+  border-radius: 10px; /* Curved corners */
+  background-color: transparent; /* Transparent button */
   overflow: hidden; /* Ensure content doesn't overflow the curved button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .vote-button button {
-  background-color: #FFA500; /* Bright orange */
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
   color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
+  cursor: pointer;
 }
 
 /* Specific styles for each corner button */
 .top-left-curve {
-  border-top-left-radius: 50%;
+  top: 0;
+  left: 0;
 }
 
 .top-right-curve {
-  border-top-right-radius: 50%;
+  top: 0;
+  right: 0;
 }
 
 .bottom-right-curve {
-  border-bottom-right-radius: 50%;
+  bottom: 0;
+  right: 0;
 }
 
 .bottom-left-curve {
-  border-bottom-left-radius: 50%;
+  bottom: 0;
+  left: 0;
+}
+
+/* Hover effect for buttons */
+.vote-button:hover button {
+  border-color: white;
 }
