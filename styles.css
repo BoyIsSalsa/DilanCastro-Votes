@@ -1,80 +1,29 @@
-body, h1, p {
+body {
   margin: 0;
   padding: 0;
-}
-
-/* Set the background color to black */
-body {
   background-color: black;
-}
-
-/* CSS for top bar */
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #FFCC99;
-  padding: 10px;
-  text-align: center;
-  z-index: 2;
-}
-
-/* Style for the top bar text */
-.top-text {
-  color: black;
-  font-weight: bold;
-}
-
-/* CSS for button layout */
-body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
 }
 
-/* Style for the vote button */
-.vote-button {
-  width: 120px;
-  height: 50px;
-  border-radius: 15px;
-  background-color: #FFA500;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  text-align: center;
 }
 
-.vote-button button {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  color: white;
+.btn {
+  padding: 15px 30px;
+  margin: 10px;
   border: 2px solid transparent;
-  outline: none;
+  border-radius: 10px;
+  background-color: #FFA500; /* Bright orange */
+  color: white;
+  font-size: 16px;
   cursor: pointer;
+  outline: none;
 }
 
-/* Specific styles for each corner button */
-.top-left-curve {
-  border-top-left-radius: 15px;
-}
-
-.top-right-curve {
-  border-top-right-radius: 15px;
-}
-
-.bottom-right-curve {
-  border-bottom-right-radius: 15px;
-}
-
-.bottom-left-curve {
-  border-bottom-left-radius: 15px;
-}
-
-/* Hover effect for buttons */
-.vote-button:hover button {
+.btn:hover {
   border-color: white;
 }
