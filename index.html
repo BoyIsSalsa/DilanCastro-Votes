@@ -5,72 +5,74 @@
   <style>
     /* CSS Styles */
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: black;
-      color: white;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
     }
 
     .top-bar {
-      background: gold;
+      background-color: gold;
+      color: white;
       text-align: center;
       padding: 10px 0;
     }
 
-    .button-container {
-      display: flex;
-      justify-content: space-around;
+    h1 {
+      text-align: center;
+      color: #333;
       margin-top: 20px;
     }
 
-    .button {
+    button {
+      display: block;
+      margin: 10px auto;
       padding: 10px 20px;
       border: none;
-      background: gold;
+      background-color: #007bff;
       color: white;
+      font-size: 16px;
       cursor: pointer;
     }
 
-    .disabled {
-      opacity: 0.5;
-      pointer-events: none;
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:focus {
+      outline: none;
     }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <p>EDIT OF THE YEAR</p>
+    <h2>EDIT OF THE YEAR</h2>
   </div>
 
-  <div class="button-container">
-    <button class="button" onclick="vote('option1', this)">Edit 1</button>
-    <button class="button" onclick="vote('option2', this)">Edit 2</button>
-    <button class="button" onclick="vote('option3', this)">Edit 3</button>
-    <button class="button" onclick="vote('option4', this)">Edit 4</button>
-  </div>
+  <h1>Vote for an Option:</h1>
+  <button onclick="vote('option1')">Option 1</button>
+  <button onclick="vote('option2')">Option 2</button>
+  <button onclick="vote('option3')">Option 3</button>
+  <button onclick="vote('option4')">Option 4</button>
 
   <script>
-    const clickedButtons = { option1: 0, option2: 0, option3: 0, option4: 0 };
+    async function vote(option) {
+      try {
+        const response = await fetch('http://localhost:3000/vote', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ option })
+        });
 
-    const vote = (option, button) => {
-      if (clickedButtons[option] === 0) {
-        clickedButtons[option]++;
-        alert(`You voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
-        disableAllButtonsExceptSelected(button);
-      } else {
-        alert(`Total people who clicked ${option}: ${clickedButtons[option]}`);
+        const data = await response.text();
+        alert(data); // Show server response (e.g., 'Vote received!')
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to vote. Please try again.');
       }
-    };
-
-    const disableAllButtonsExceptSelected = (selectedButton) => {
-      const buttons = document.querySelectorAll('.button');
-      buttons.forEach((btn) => {
-        if (btn !== selectedButton) {
-          btn.disabled = true;
-          btn.classList.add('disabled');
-        }
-      });
-    };
+    }
   </script>
 </body>
 </html>
