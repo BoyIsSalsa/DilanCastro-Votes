@@ -2,16 +2,36 @@
 <html>
 <head>
   <title>Your Website</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="top-bar">
+    <p>EDIT OF THE YEAR</p>
+  </div>
 
-<div class="container">
-  <button class="btn">Button 1</button>
-  <button class="btn">Button 2</button>
-  <button class="btn">Button 3</button>
-  <button class="btn">Button 4</button>
-</div>
+  <div class="button-container">
+    <button class="button" onclick="goToPage1()">Button 1</button>
+    <button class="button" onclick="goToPage2()">Button 2</button>
+    <button class="button" onclick="goToPage3()">Button 3</button>
+    <button class="button" onclick="goToPage4()">Button 4</button>
+  </div>
 
+  <script>
+    function goToPage1() {
+      window.location.href = "https://your_page_url_1.com";
+    }
+
+    function goToPage2() {
+      window.location.href = "https://your_page_url_2.com";
+    }
+
+    function goToPage3() {
+      window.location.href = "https://your_page_url_3.com";
+    }
+
+    function goToPage4() {
+      window.location.href = "https://your_page_url_4.com";
+    }
+  </script>
 </body>
 </html>
