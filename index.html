@@ -55,12 +55,21 @@
     const vote = (option, button) => {
       if (clickedButtons[option] === 0) {
         clickedButtons[option]++;
-        button.disabled = true;
-        button.classList.add('disabled');
         alert(`You voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
       } else {
         alert(`You have already voted for ${option}!\nTotal people who clicked ${option}: ${clickedButtons[option]}`);
       }
+      disableAllButtonsExceptSelected(button);
+    };
+
+    const disableAllButtonsExceptSelected = (selectedButton) => {
+      const buttons = document.querySelectorAll('.button');
+      buttons.forEach((btn) => {
+        if (btn !== selectedButton) {
+          btn.disabled = true;
+          btn.classList.add('disabled');
+        }
+      });
     };
   </script>
 </body>
