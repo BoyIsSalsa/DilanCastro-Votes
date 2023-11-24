@@ -10,9 +10,14 @@ body {
 
 /* CSS for top bar */
 .top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #FFCC99; /* Light orange */
   padding: 10px;
   text-align: center;
+  z-index: 2; /* Ensure the top bar is above other elements */
 }
 
 /* Style for the top bar text */
@@ -24,11 +29,12 @@ body {
 /* Text under top bar */
 .main-text {
   text-align: center;
-  margin-top: 20px;
+  color: white;
+  margin-top: 50px; /* Adjust margin as needed */
+  z-index: 1; /* Place text under the top bar */
 }
 
 .sub-text {
-  color: white;
   font-weight: 600; /* Slightly bold */
 }
 
@@ -47,6 +53,8 @@ body {
   display: inline-block;
   text-align: center;
   margin: 20px;
+  border-radius: 50%; /* Make the ends of the button curve */
+  overflow: hidden; /* Ensure content doesn't overflow the curved button */
 }
 
 .vote-button button {
@@ -54,9 +62,23 @@ body {
   color: white;
   padding: 10px 20px;
   font-size: 16px;
-  border: 2px solid transparent;
+  border: none;
+  outline: none;
 }
 
-.vote-button button:hover {
-  border-color: black;
+/* Specific styles for each corner button */
+.top-left-curve {
+  border-top-left-radius: 50%;
+}
+
+.top-right-curve {
+  border-top-right-radius: 50%;
+}
+
+.bottom-right-curve {
+  border-bottom-right-radius: 50%;
+}
+
+.bottom-left-curve {
+  border-bottom-left-radius: 50%;
 }
