@@ -1,85 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Voting System</title>
+  <title>Voting System</title>
   <style>
+    /* CSS Styles */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      background-color: black; /* Background set to black */
+      background: black;
+      color: white;
     }
 
     .top-bar {
-      background-color: gold; /* Top bar color set to gold */
-      color: black; /* Text color changed to black */
+      background: gold;
       text-align: center;
       padding: 10px 0;
-      width: 100%;
-      margin-top: 0; /* Removes default margin */
     }
 
     .button-container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 50px;
+      justify-content: space-around;
+      margin-top: 20px;
     }
 
     .button {
-      padding: 15px 40px;
-      border-radius: 20px;
-      background-color: gold; /* Button color set to gold */
-      color: black; /* Text color changed to black */
-      border: 2px solid black; /* Button border color */
-      font-size: 18px;
-      font-weight: bold;
-      text-transform: uppercase;
+      padding: 10px 20px;
+      border: none;
+      background: gold;
+      color: white;
       cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: black;
-      color: gold; /* Button text color on hover */
     }
   </style>
 </head>
-	@@ -57,31 +44,41 @@
+<body>
+  <div class="top-bar">
+    <p>EDIT OF THE YEAR</p>
   </div>
 
   <div class="button-container">
-    <button class="button" onclick="vote('Edit1')">Edit 1</button>
-    <button class="button" onclick="vote('Edit2')">Edit 2</button>
-    <button class="button" onclick="vote('Edit3')">Edit 3</button>
-    <button class="button" onclick="vote('Edit4')">Edit 4</button>
+    <button class="button" onclick="vote('option1')">Edit 1</button>
+    <button class="button" onclick="vote('option2')">Edit 2</button>
+    <button class="button" onclick="vote('option3')">Edit 3</button>
+    <button class="button" onclick="vote('option4')">Edit 4</button>
   </div>
 
   <script>
-    let votes = {
-      Edit1: 0,
-      Edit2: 0,
-      Edit3: 0,
-      Edit4: 0
-    };
+    const clickedButtons = {};
 
-    function vote(option) {
-      if (localStorage.getItem('hasVoted')) {
-        alert('You have already voted from this device.');
-        return;
+    const vote = (option) => {
+      if (!clickedButtons[option]) {
+        clickedButtons[option] = true;
+        const count = Object.keys(clickedButtons).length;
+        alert(`You voted for ${option}!\nTotal people who clicked: ${count}`);
+      } else {
+        alert(`You have already voted for ${option}!\nTotal people who clicked: ${Object.keys(clickedButtons).length}`);
       }
-
-      votes[option]++;
-      localStorage.setItem('hasVoted', true);
-      alert(`You voted for ${option}! Total votes for ${option}: ${votes[option]}`);
-      // This is just an alert; for a real system, send this data to a server to save votes
-    }
+    };
   </script>
 </body>
 </html>
