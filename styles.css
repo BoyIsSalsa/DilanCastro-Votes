@@ -27,13 +27,10 @@ body {
 }
 
 /* Text under top bar */
-.main-text {
+.sub-text {
   text-align: center;
   color: white;
-  margin-top: 40px; /* Adjust margin to position text below top bar */
-}
-
-.sub-text {
+  margin-top: 5px; /* Adjust margin to position text closer to top bar */
   font-weight: 600; /* Slightly bold */
 }
 
