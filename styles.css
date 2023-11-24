@@ -30,8 +30,7 @@ body {
 .main-text {
   text-align: center;
   color: white;
-  margin-top: 5px; /* Adjust margin to bring text closer to top bar */
-  z-index: 1; /* Place text under the top bar */
+  margin-top: 40px; /* Adjust margin to position text below top bar */
 }
 
 .sub-text {
