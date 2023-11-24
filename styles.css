@@ -1,0 +1,33 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set the background color to black */
+  body {
+    background-color: black;
+  }
+  
+  /* CSS for top bar */
+  .top-bar {
+    background-color: #FFCC99; /* Light orange */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Style for the top bar text */
+  .top-text {
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* Text under top bar */
+  .main-text {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .sub-text {
+    color: white;
+    font-weight: 600; /* Slightly bold */
+  }
