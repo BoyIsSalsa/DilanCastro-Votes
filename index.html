@@ -5,74 +5,80 @@
   <style>
     /* CSS Styles */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
     }
 
     .top-bar {
-      background-color: gold;
-      color: white;
+      background: gold;
       text-align: center;
       padding: 10px 0;
     }
 
-    h1 {
-      text-align: center;
-      color: #333;
+    .button-container {
+      display: flex;
+      justify-content: space-around;
       margin-top: 20px;
     }
 
-    button {
-      display: block;
-      margin: 10px auto;
+    .button {
       padding: 10px 20px;
       border: none;
-      background-color: #007bff;
+      background: gold;
       color: white;
-      font-size: 16px;
       cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    button:focus {
-      outline: none;
     }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <h2>EDIT OF THE YEAR</h2>
+    <p>EDIT OF THE YEAR</p>
   </div>
 
-  <h1>Vote for an Option:</h1>
-  <button onclick="vote('option1')">Option 1</button>
-  <button onclick="vote('option2')">Option 2</button>
-  <button onclick="vote('option3')">Option 3</button>
-  <button onclick="vote('option4')">Option 4</button>
+  <div class="button-container">
+    <button class="button" onclick="vote('option1')">Option 1</button>
+    <button class="button" onclick="vote('option2')">Option 2</button>
+    <button class="button" onclick="vote('option3')">Option 3</button>
+    <button class="button" onclick="vote('option4')">Option 4</button>
+  </div>
+
+  <div class="results">
+    <h2>Results</h2>
+    <div id="option1Votes"></div>
+    <div id="option2Votes"></div>
+    <div id="option3Votes"></div>
+    <div id="option4Votes"></div>
+  </div>
 
   <script>
-    async function vote(option) {
-      try {
-        const response = await fetch('http://localhost:3000/vote', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ option })
-        });
+    const storageKey = 'voting_system';
 
-        const data = await response.text();
-        alert(data); // Show server response (e.g., 'Vote received!')
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to vote. Please try again.');
+    const updateResults = () => {
+      const votes = JSON.parse(localStorage.getItem(storageKey)) || {};
+      document.getElementById('option1Votes').innerText = `Option 1: ${votes.option1 || 0} votes`;
+      document.getElementById('option2Votes').innerText = `Option 2: ${votes.option2 || 0} votes`;
+      document.getElementById('option3Votes').innerText = `Option 3: ${votes.option3 || 0} votes`;
+      document.getElementById('option4Votes').innerText = `Option 4: ${votes.option4 || 0} votes`;
+    };
+
+    const vote = (option) => {
+      let clickedButtons = JSON.parse(localStorage.getItem(storageKey)) || {};
+
+      if (!clickedButtons[option]) {
+        clickedButtons[option] = (clickedButtons[option] || 0) + 1;
+        localStorage.setItem(storageKey, JSON.stringify(clickedButtons));
+        alert(`You voted for ${option}!`);
+        updateResults(); // Update displayed votes
+      } else {
+        alert(`You have already voted for ${option}!`);
       }
-    }
+    };
+
+    window.onload = () => {
+      updateResults(); // Update displayed votes on page load
+    };
   </script>
 </body>
 </html>
