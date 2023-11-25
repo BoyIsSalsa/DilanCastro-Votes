@@ -38,10 +38,10 @@
   </div>
 
   <div class="button-container">
-    <button class="button" onclick="vote('option1')">Option 1</button>
-    <button class="button" onclick="vote('option2')">Option 2</button>
-    <button class="button" onclick="vote('option3')">Option 3</button>
-    <button class="button" onclick="vote('option4')">Option 4</button>
+    <button class="button" onclick="vote('option1')" id="option1">Option 1</button>
+    <button class="button" onclick="vote('option2')" id="option2">Option 2</button>
+    <button class="button" onclick="vote('option3')" id="option3">Option 3</button>
+    <button class="button" onclick="vote('option4')" id="option4">Option 4</button>
   </div>
 
   <div class="results">
@@ -53,6 +53,7 @@
   </div>
 
   <script>
+    // JavaScript for Voting System
     const storageKey = 'voting_system';
 
     const updateResults = () => {
@@ -70,6 +71,7 @@
         clickedButtons[option] = (clickedButtons[option] || 0) + 1;
         localStorage.setItem(storageKey, JSON.stringify(clickedButtons));
         alert(`You voted for ${option}!`);
+        document.getElementById(option).disabled = true; // Disable the button after voting
         updateResults(); // Update displayed votes
       } else {
         alert(`You have already voted for ${option}!`);
